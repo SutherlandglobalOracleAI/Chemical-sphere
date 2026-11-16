@@ -31,6 +31,13 @@ function renderOverview(){
     {id:'modelintel', t:'Model Intelligence', d:'What each agent watches, and why it fires.'},
   ];
   el.innerHTML=`
+    <div class="demo-banner">
+      <div class="demo-banner-text">
+        <h2>Welcome to ChemicalSphere</h2>
+        <p>Sutherland's Decision Intelligence Platform — turning operational data into margin-protecting recommendations, automatically.</p>
+      </div>
+      <button class="demo-banner-btn" onclick="startTour()">▶ Start Guided Tour</button>
+    </div>
     <div class="sec"><div class="tiles2">
       ${kpiTile2('Net Revenue (Latest Qtr)', usd(D.current.revenue), reldelta(D.current.revenue,D.prior.revenue), false, trendSlice(8,'revenue'))}
       ${kpiTile2('Batches (Latest Qtr)', num(D.current.batches), reldelta(D.current.batches,D.prior.batches), false, trendSlice(8,'batches'))}
