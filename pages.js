@@ -128,12 +128,12 @@ function renderPlant(region){
       ${agentGrid(D.agents.filter(a=>a.domain==='Manufacturing'))}
     </div>
     <div class="card"><h3 class="ct">Plant scorecard<span class="note">Latest rolling 6 months · sorted worst OEE first · rows in red breach the OEE floor</span></h3>
-    <table><tr><th>Plant</th><th>Region</th><th class="n">OEE</th><th class="n">Yield</th><th class="n">Reject</th><th class="n">Margin</th><th>Throughput</th></tr>
+    <table><tr><th>Plant</th><th>Region</th><th class="n">OEE</th><th class="n">Yield</th><th class="n">Reject</th><th class="n">Margin</th><th class="c">Throughput</th></tr>
     ${rows.map(p=>`<tr data-code="${p.plant_id}" class="${p.oee<D.thresholds.oee_floor?'alert':''}">
       <td><b>${p.plant_name}</b><br><small style="color:#8A93A3">${p.plant_id}</small></td>
-      <td>${p.region}</td><td class="n">${pct(p.oee)}</td><td class="n">${pct(p.yld)}</td>
+      <td style="text-align:center">${p.region}</td><td class="n">${pct(p.oee)}</td><td class="n">${pct(p.yld)}</td>
       <td class="n">${pct(p.rej)}</td><td class="n">${pct(p.margin_pct)}</td>
-      <td>${bar(p.tput,maxTput,'#770107')}</td></tr>`).join('')}
+      <td class="c">${bar(p.tput,maxTput,'#770107')}</td></tr>`).join('')}
     </table></div>`;
   document.getElementById('scope-plant').innerHTML=`<b>Scope:</b> ${rows.length} of ${D.meta.plants} plants${region!=='ALL'?' in '+region:''} &middot; latest rolling 6 months`;
 }
